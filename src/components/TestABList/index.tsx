@@ -18,7 +18,7 @@ export default function TestABList({ page }: TestABListProps) {
   const feature2 = useFeature(feature2Name);
   const featureH1PartTitle = useFeature(featureH1PartName)
 
-  console.log({ isFeatureAorBEnabled, isFeature1Enabled, feature2, featureH1PartTitle })
+  console.log(isFeatureAorBEnabled, isFeature1Enabled, feature2.value, featureH1PartTitle.value)
 
   return (
     <div className="ab-list-wrapper">
