@@ -1,14 +1,11 @@
 "use client"
 
-import Image from 'next/image'
-import styles from './page.module.css'
-import { useEffect } from 'react';
+import TestABList from "@/components/TestABList";
+import { growthbook } from "@/services/growthbook";
 import { GrowthBookProvider } from "@growthbook/growthbook-react";
-import TestABList from '@/components/TestABList';
-import { growthbook } from '@/services/growthbook';
+import { useEffect } from "react";
 
-
-export default function Home() {
+export default function Dashboard() {
   useEffect(() => {
     // Load features asynchronously when the app renders
     growthbook.loadFeatures();
@@ -16,7 +13,7 @@ export default function Home() {
 
   return (
     <GrowthBookProvider growthbook={growthbook}>
-      <TestABList page='Home' />
+      <TestABList page="Dashboard" />
     </GrowthBookProvider>
   )
 }
