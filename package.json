@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@growthbook/growthbook-react": "^0.22.0",
-    "next": "14.0.4",
+    "@next/third-parties": "^14.2.4",
+    "next": "^14.2.4",
     "react": "^18",
     "react-dom": "^18"
   },

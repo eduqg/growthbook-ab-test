@@ -1,7 +1,8 @@
 import { useFeatureIsOn, useFeature, IfFeatureEnabled } from "@growthbook/growthbook-react";
+import { sendGTMEvent } from "@next/third-parties/google";
+import Header from "../Header";
 import TestABItem from "../TestABItem";
 import './styles.css'
-import Header from "../Header";
 
 const featureAorBName = "a-or-b"
 const feature1Name = "my-feature-1"
@@ -53,6 +54,27 @@ export default function TestABList({ page }: TestABListProps) {
           weights={feature2.experiment?.weights}
         />
       </div>
+
+
+      <button
+        onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })}
+      >
+        Send sample event
+      </button>
+
+      <button
+        onClick={() => alert('Clicou em BIG CALL-TO-ACTION BUTTON A')}
+        data-analytic-id="big-call-to-action-button-A"
+      >
+        BIG CALL-TO-ACTION BUTTON A
+      </button>
+      <button
+        onClick={() => alert('Clicou em BIG CALL-TO-ACTION BUTTON B')}
+        data-analytic-id="big-call-to-action-button-b"
+
+      >
+        BIG CALL-TO-ACTION BUTTON B
+      </button>
     </div>
   )
 }

@@ -18,6 +18,11 @@ export default function TestABItem({
   weights
 
 }: TestABItemProps) {
+
+  const handleClick = () => {
+    alert('clicou')
+  }
+
   return (
     <div className="ab-item-wrapper"  >
       <div className="ab-item-title-wrapper">
@@ -34,9 +39,27 @@ export default function TestABItem({
       <div className="ab-item-content">
         <div className={`ab-item ${!isOn ? 'ab-item-disabled' : ''}`}>
           {ComponentA}
+
+          {!isOn && featureName === 'a-or-b' && (
+            <button
+              type="button"
+              onClick={handleClick}
+              data-analytic-id={`${featureName}-button-a`}>
+              Botão A
+            </button>
+          )}
         </div>
         <div className={`ab-item ${isOn ? 'ab-item-active' : ''}`}>
           {ComponentB}
+
+          {isOn && featureName === 'a-or-b' && (
+            <button
+              type="button"
+              onClick={handleClick}
+              data-analytic-id={`${featureName}-button-b`}>
+              Botão B
+            </button>
+          )}
         </div>
       </div>
     </div>
